@@ -1,0 +1,12 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: practice-k8
+  region: us-east-1
+
+managedNodeGroups:
+  - name: practice-k8
+    instanceTypes: ["t3.medium", "t2.medium"]
+    desiredCapacity: 2
+    spot: true
