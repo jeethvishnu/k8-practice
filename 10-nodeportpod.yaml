@@ -10,5 +10,5 @@ spec:
   - name: nginx
     image: nginx
     env:
-    - title: "welcome"
+    - name: "welcome"
   
