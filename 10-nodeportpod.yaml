@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nodeport-pod
+  labels:
+    course: k8s
+    project: loq
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - title: "welcome"
+  
