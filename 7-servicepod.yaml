@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: service-pod
+  labels:
+    course: k8s
+    project: lenovo
+spec:
+  containers:
+  - name: nginx
+    image: nginx
