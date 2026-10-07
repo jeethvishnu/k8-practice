@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-configmap
+  labels:
+    course: k8s
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    command: ["sleep","2000"]
+    envFrom:
+      - configMapRef:
+          name: configmap-pp

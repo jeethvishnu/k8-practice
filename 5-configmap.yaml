@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: configmap-pp
+  labels:
+    course: k8s
+data:
+  player_initial_lives: "3"
+  ui_properties_file_name: "user-interface.properties"
