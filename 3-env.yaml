@@ -1,0 +1,13 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: env-pp
+  labels:
+    course: k8s
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: DEMO_GREETING
+      value: "Hello from the environment"
