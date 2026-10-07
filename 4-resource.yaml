@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: resource-limit
+  labels:
+    course: k8s
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+    - name: DEMO_GREETING
+      value: "Hello from the environment"
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "64Mi"
+        cpu: "250m"
