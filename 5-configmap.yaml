@@ -1,7 +1,7 @@
-kind: configMap
+kind: ConfigMap
 apiversion: v1
 metadata:
-  name: practice
+  name: cm
   labels:
     purpose: imp
     project: loq
