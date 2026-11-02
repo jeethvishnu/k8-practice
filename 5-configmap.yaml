@@ -4,7 +4,7 @@ metadata:
   name: practice
   labels:
     purpose: imp
+    project: loq
 data:
   course: 'k8s'
   creds: 'jeethvishnu.com'
-  
