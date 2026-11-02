@@ -6,7 +6,7 @@ metadata:
   region: us-east-1
 
 managedNodeGroups:
-  - name: practice-k8
+  - name: k8
     instanceTypes: ["t3.medium", "t2.medium"]
     desiredCapacity: 2
     spot: true
