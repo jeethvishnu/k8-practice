@@ -1,0 +1,10 @@
+kind: configMap
+apiversion: v1
+metadata:
+  name: practice
+  labels:
+    purpose: imp
+data:
+  course: 'k8s'
+  creds: 'jeethvishnu.com'
+  
