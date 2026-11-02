@@ -1,0 +1,16 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-map
+  labels:
+    purpose: dev
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    env:
+      - name: one
+        valueFrom:
+          configMapKeyRef:
+            name: cm
+            key: course
