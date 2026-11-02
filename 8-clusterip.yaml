@@ -1,4 +1,4 @@
-kind: Service
+kind: Pod
 apiVersion: v1
 metadata:
   name: clusterip
