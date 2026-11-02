@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc
+spec:
+  selector:
+    purpose: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 30002
