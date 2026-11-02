@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: clusterip
+  labels:
+    purpose: MyApp
+spec:
+  containers:
+  - name: nginx
+    image: nginx
