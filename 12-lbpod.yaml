@@ -1,0 +1,10 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: my-lb
+  labels:
+    purpose: MyApp
+spec:
+  containers:
+  - name: nginx
+    image: nginx
