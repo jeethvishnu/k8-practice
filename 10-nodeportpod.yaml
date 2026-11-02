@@ -1,11 +1,11 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: nodeP
+  name: nodep
   labels:
     purpose: MyApp
 spec:
   containers:
   - name: nginx
     image: nginx
-    
+
