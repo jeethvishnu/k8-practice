@@ -11,46 +11,46 @@ spec:
     driver: ebs.csi.aws.com
     fsType: ext4
     volumeHandle: vol-0d5fefb000ce4c461
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: static-claim
-spec:
-  volumeName: new-static
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 5Gi
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: app
-  labels:
-    purpose: practice
-spec:
-  containers:
-  - name: nginx
-    image: nginx
-    volumeMounts:
-    - name: new-static
-      mountPath: /usr/share/nginx/html
-  volumes:
-  - name: persistent-storage
-    persistentVolumeClaim:
-      claimName: static-claim
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: lb
-spec:
-  type: LoadBalancer
-  selector:
-    purpose: practice
-  ports:
-    - port: 80
-      targetPort: 80
-      nodePort: 30006
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: static-claim
+# spec:
+#   volumeName: new-static
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 5Gi
+# ---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: app
+#   labels:
+#     purpose: practice
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx
+#     volumeMounts:
+#     - name: new-static
+#       mountPath: /usr/share/nginx/html
+#   volumes:
+#   - name: persistent-storage
+#     persistentVolumeClaim:
+#       claimName: static-claim
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: lb
+# spec:
+#   type: LoadBalancer
+#   selector:
+#     purpose: practice
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#       nodePort: 30006
