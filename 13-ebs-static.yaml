@@ -7,6 +7,7 @@ spec:
   - ReadWriteOnce
   capacity:
     storage: 50Gi
+  storageClassName: ""
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
@@ -35,7 +36,7 @@ spec:
   - name: nginx
     image: nginx
     volumeMounts:
-    - name: new-static
+    - name: persistent-storage
       mountPath: /usr/share/nginx/html
   volumes:
   - name: persistent-storage
