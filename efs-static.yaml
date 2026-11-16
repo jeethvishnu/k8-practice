@@ -45,14 +45,15 @@ spec:
     persistentVolumeClaim:
       claimName: efs-static-cliam
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: svc
+  name: lb
 spec:
+  type: LoadBalancer
   selector:
-    purpose: efs
+    name: efs
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 30002
+    - port: 80
+      targetPort: 80
+      nodePort: 30006
