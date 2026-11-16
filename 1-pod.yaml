@@ -9,3 +9,13 @@ spec:
   - name: nginx
     image: nginx
     
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sample
+  labels:
+    purpose: pra
+spec:
+  containers:
+  - name: nginx
+    image: nginx
