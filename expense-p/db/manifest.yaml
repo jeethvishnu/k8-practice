@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ebs-dynamic
-  Namespace: jeeth
+  namespace: jeeth
 spec:
   accessModes:
     - ReadWriteOnce
