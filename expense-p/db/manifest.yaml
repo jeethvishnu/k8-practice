@@ -22,7 +22,7 @@ spec:
   selector:
     matchLabels:
       purpose: db # has to match .spec.template.metadata.labels
-  serviceName: "db"
+  serviceName: "db-headless"
   replicas: 3 # by default is 1
   minReadySeconds: 10 # by default is 0
   template:
@@ -58,3 +58,7 @@ spec:
   clusterIP: None
   selector:
     purpose: db
+  ports:
+  - name: mysql
+    port: 3306
+    targetPort: 3306
