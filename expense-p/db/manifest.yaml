@@ -15,6 +15,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: db-stateful
+  namespace: jeeth
   labels:
     purpose: db
 spec:
