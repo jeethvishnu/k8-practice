@@ -5,7 +5,7 @@ metadata:
   labels:
     purpose: backend-map
 data:
-  DB_HOST: mysql
+  DB_HOST: db-headless
 ---
 apiVersion: apps/v1
 kind: Deployment
