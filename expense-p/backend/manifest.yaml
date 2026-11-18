@@ -1,0 +1,43 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: backend
+  labels:
+    purpose: backend-map
+data:
+  DB_HOST: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deploy
+  labels:
+    purpose: backend-deploy
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      purpose: backend
+  template:
+    metadata:
+      labels:
+        purpose: backend
+    spec:
+      containers:
+      - name: backend
+        image: jeeth22/backend:v1
+        envFrom:
+        - configMapRef:
+          name: backend
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: svc
+spec:
+  selector:
+    purpose: backend-deploy
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 30002
