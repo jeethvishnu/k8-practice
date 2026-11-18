@@ -34,7 +34,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: svc
+  name: backend
 spec:
   selector:
     purpose: backend-deploy
