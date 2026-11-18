@@ -53,8 +53,8 @@ metadata:
   name: db-headless
   namespace: jeeth
   labels:
-    app: db-headless
+    purpose: db
 spec:
   clusterIP: None
   selector:
-    app: db-headless
+    purpose: db
