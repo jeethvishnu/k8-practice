@@ -11,48 +11,48 @@ spec:
     requests:
       storage: 4Gi
 ---
-# apiVersion: apps/v1
-# kind: StatefulSet
-# metadata:
-#   name: db-stateful
-#   labels:
-#     purpose: db
-# spec:
-#   selector:
-#     matchLabels:
-#       purpose: db # has to match .spec.template.metadata.labels
-#   serviceName: "db"
-#   replicas: 3 # by default is 1
-#   minReadySeconds: 10 # by default is 0
-#   template:
-#     metadata:
-#       labels:
-#         purpose: db # has to match .spec.selector.matchLabels
-#     spec:
-#       terminationGracePeriodSeconds: 10
-#       containers:
-#       - name: mysql
-#         image: jeeth22/db:v1
-#         volumeMounts:
-#         - name: mysql
-#           mountPath: /var/lib/mysql
-#   volumeClaimTemplates:
-#   - metadata:
-#       name: mysql
-#     spec:
-#       accessModes: [ "ReadWriteOnce" ]
-#       storageClassName: "ebs-sc"
-#       resources:
-#         requests:
-#           storage: 1Gi
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: db-headless
-#   labels:
-#     app: db-headless
-# spec:
-#   clusterIP: None
-#   selector:
-#     app: db-headless
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: db-stateful
+  labels:
+    purpose: db
+spec:
+  selector:
+    matchLabels:
+      purpose: db # has to match .spec.template.metadata.labels
+  serviceName: "db"
+  replicas: 3 # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        purpose: db # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mysql
+        image: jeeth22/db:v1
+        volumeMounts:
+        - name: mysql
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "ebs-sc"
+      resources:
+        requests:
+          storage: 1Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-headless
+  labels:
+    app: db-headless
+spec:
+  clusterIP: None
+  selector:
+    app: db-headless
