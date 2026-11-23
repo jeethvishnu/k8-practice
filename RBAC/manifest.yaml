@@ -43,7 +43,7 @@ metadata:
   name: namespace-jeeth-bind
   namespace: jeeth
 subjects:
-- kind: user
+- kind: User
   name:  jeethEks # Name is case sensitive
   apiGroup: rbac.authorization.k8s.io
 roleRef:
