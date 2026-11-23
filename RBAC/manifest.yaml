@@ -30,6 +30,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: namespace-reader-jeeth
+  namespace: jeeth
 rules:
 - apiGroups: [""]
   resources: ["namespaces"]
@@ -40,6 +41,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: namespace-jeeth-bind
+  namespace: jeeth
 subjects:
 - kind: user
   name:  jeethEks # Name is case sensitive
