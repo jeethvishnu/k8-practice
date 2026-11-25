@@ -37,16 +37,14 @@ metadata:
 spec:
   affinity:
     podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - weight: 100
-            podAffinityTerm:
-              labelSelector:
-                matchExpressions:
-                - key: name
-                  operator: In
-                  values:
-                  - pod-2
-              topologyKey: topology.kubernetes.io/zone
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: name
+            operator: In
+            values:
+            - pod-2
+        topologyKey: topology.kubernetes.io/zone
   containers:
   - name: nginx
     image: nginx
