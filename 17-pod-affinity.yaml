@@ -1,0 +1,29 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-1
+  labels:
+    purpose: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+---
+# apiVersion: v1
+# kind: Pod
+# metadata:
+#   name: with-pod-affinity
+# spec:
+#   affinity:
+#     podAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#       - labelSelector:
+#           matchExpressions:
+#           - key: security
+#             operator: In
+#             values:
+#             - S1
+#         topologyKey: topology.kubernetes.io/zone
+#   containers:
+#   - name: with-pod-affinity
+#     image: registry.k8s.io/pause:3.8
