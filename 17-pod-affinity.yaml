@@ -19,15 +19,15 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
           matchExpressions:
-          - key: "purpose"
+          - key: name
             operator: In
             values:
-            - dev
+            - pod-1
         topologyKey: topology.kubernetes.io/zone
   containers:
   - name: with-pod-affinity
     image: registry.k8s.io/pause:3.8
-  tolerations:
-  - key: "project"
-    operator: "Exists"
-    effect: "NoSchedule"
+  # tolerations:
+  # - key: "project"
+  #   operator: "Exists"
+  #   effect: "NoSchedule"
