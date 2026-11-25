@@ -47,6 +47,9 @@ spec:
                   values:
                   - pod-2
               topologyKey: topology.kubernetes.io/zone
+  containers:
+  - name: nginx
+    image: nginx
       # tolerations:
       # - key: "project"
       #   operator: "Exists"
